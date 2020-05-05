@@ -16,9 +16,13 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* RewardMeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* RewardMeTests.m */; };
+		32264A6F366F97C71935182D /* libPods-RewardMe-RewardMeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBAC2F8935E97E31D967D09 /* libPods-RewardMe-RewardMeTests.a */; };
 		99DCCAC39103D7A2B5FE93A6 /* libPods-RewardMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C042B59D362A20C45C42D814 /* libPods-RewardMe.a */; };
 		A23213640B271B0E0A985A1A /* libPods-RewardMe-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 451F26ADE4D5CC0D7B244A84 /* libPods-RewardMe-tvOSTests.a */; };
-		B7ED43D0A393F1E13660EFFC /* libPods-RewardMeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EC09FEFF5803922CDCFE782 /* libPods-RewardMeTests.a */; };
+		B606DD94246014BC00CAA2E6 /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B606DD93246014BC00CAA2E6 /* Dummy.swift */; };
+		B606DDA32461046E00CAA2E6 /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B606DD93246014BC00CAA2E6 /* Dummy.swift */; };
+		B606DDA42461046F00CAA2E6 /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B606DD93246014BC00CAA2E6 /* Dummy.swift */; };
+		B606DDA52461047100CAA2E6 /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B606DD93246014BC00CAA2E6 /* Dummy.swift */; };
 		E4A861414D4F4AFCEC62E206 /* libPods-RewardMe-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6668AC177D9D64DC5B43B235 /* libPods-RewardMe-tvOS.a */; };
 /* End PBXBuildFile section */
 
@@ -60,11 +64,20 @@
 		451F26ADE4D5CC0D7B244A84 /* libPods-RewardMe-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RewardMe-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D4F94DD244013BA2C05F355 /* Pods-RewardMeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RewardMeTests.release.xcconfig"; path = "Target Support Files/Pods-RewardMeTests/Pods-RewardMeTests.release.xcconfig"; sourceTree = "<group>"; };
 		6668AC177D9D64DC5B43B235 /* libPods-RewardMe-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RewardMe-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7EC09FEFF5803922CDCFE782 /* libPods-RewardMeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RewardMeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FBAC2F8935E97E31D967D09 /* libPods-RewardMe-RewardMeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RewardMe-RewardMeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A01BD7A605BF1672FD9444E1 /* Pods-RewardMe-RewardMeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RewardMe-RewardMeTests.release.xcconfig"; path = "Target Support Files/Pods-RewardMe-RewardMeTests/Pods-RewardMe-RewardMeTests.release.xcconfig"; sourceTree = "<group>"; };
 		AD3657E23D936590108E99FB /* Pods-RewardMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RewardMe.release.xcconfig"; path = "Target Support Files/Pods-RewardMe/Pods-RewardMe.release.xcconfig"; sourceTree = "<group>"; };
 		B09D2595440A1FA49E00C4CB /* Pods-RewardMeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RewardMeTests.debug.xcconfig"; path = "Target Support Files/Pods-RewardMeTests/Pods-RewardMeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B606DD93246014BC00CAA2E6 /* Dummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dummy.swift; path = RewardMe/Dummy.swift; sourceTree = "<group>"; };
+		B606DD95246017AA00CAA2E6 /* libswiftCore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftCore.tbd; path = usr/lib/swift/libswiftCore.tbd; sourceTree = SDKROOT; };
+		B606DD97246017D600CAA2E6 /* libswiftCoreGraphics.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftCoreGraphics.tbd; path = usr/lib/swift/libswiftCoreGraphics.tbd; sourceTree = SDKROOT; };
+		B606DD99246017DC00CAA2E6 /* libswiftUIKit.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftUIKit.tbd; path = usr/lib/swift/libswiftUIKit.tbd; sourceTree = SDKROOT; };
+		B606DD9B246017E100CAA2E6 /* libswiftDarwin.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftDarwin.tbd; path = usr/lib/swift/libswiftDarwin.tbd; sourceTree = SDKROOT; };
+		B606DD9D246017E700CAA2E6 /* libswiftObjectiveC.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftObjectiveC.tbd; path = usr/lib/swift/libswiftObjectiveC.tbd; sourceTree = SDKROOT; };
+		B606DD9F246017EF00CAA2E6 /* libswiftCoreFoundation.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftCoreFoundation.tbd; path = usr/lib/swift/libswiftCoreFoundation.tbd; sourceTree = SDKROOT; };
 		C042B59D362A20C45C42D814 /* libPods-RewardMe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RewardMe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD6E0A087DA561327AA6E405 /* Pods-RewardMe-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RewardMe-tvOS.release.xcconfig"; path = "Target Support Files/Pods-RewardMe-tvOS/Pods-RewardMe-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		DFF8B1989C502EC318371828 /* Pods-RewardMe-RewardMeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RewardMe-RewardMeTests.debug.xcconfig"; path = "Target Support Files/Pods-RewardMe-RewardMeTests/Pods-RewardMe-RewardMeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
@@ -74,7 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7ED43D0A393F1E13660EFFC /* libPods-RewardMeTests.a in Frameworks */,
+				32264A6F366F97C71935182D /* libPods-RewardMe-RewardMeTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +138,7 @@
 		13B07FAE1A68108700A75B9A /* RewardMe */ = {
 			isa = PBXGroup;
 			children = (
+				B606DD93246014BC00CAA2E6 /* Dummy.swift */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -139,12 +153,18 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B606DD9F246017EF00CAA2E6 /* libswiftCoreFoundation.tbd */,
+				B606DD9D246017E700CAA2E6 /* libswiftObjectiveC.tbd */,
+				B606DD9B246017E100CAA2E6 /* libswiftDarwin.tbd */,
+				B606DD99246017DC00CAA2E6 /* libswiftUIKit.tbd */,
+				B606DD97246017D600CAA2E6 /* libswiftCoreGraphics.tbd */,
+				B606DD95246017AA00CAA2E6 /* libswiftCore.tbd */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				C042B59D362A20C45C42D814 /* libPods-RewardMe.a */,
 				6668AC177D9D64DC5B43B235 /* libPods-RewardMe-tvOS.a */,
 				451F26ADE4D5CC0D7B244A84 /* libPods-RewardMe-tvOSTests.a */,
-				7EC09FEFF5803922CDCFE782 /* libPods-RewardMeTests.a */,
+				8FBAC2F8935E97E31D967D09 /* libPods-RewardMe-RewardMeTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -193,6 +213,8 @@
 				0C660135710DCC1D7AB8AB82 /* Pods-RewardMe-tvOSTests.release.xcconfig */,
 				B09D2595440A1FA49E00C4CB /* Pods-RewardMeTests.debug.xcconfig */,
 				4D4F94DD244013BA2C05F355 /* Pods-RewardMeTests.release.xcconfig */,
+				DFF8B1989C502EC318371828 /* Pods-RewardMe-RewardMeTests.debug.xcconfig */,
+				A01BD7A605BF1672FD9444E1 /* Pods-RewardMe-RewardMeTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -295,6 +317,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = TAPWFP66G4;
+						LastSwiftMigration = 1140;
 						ProvisioningStyle = Automatic;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -377,7 +400,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -474,7 +497,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RewardMeTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-RewardMe-RewardMeTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -526,6 +549,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B606DDA32461046E00CAA2E6 /* Dummy.swift in Sources */,
 				00E356F31AD99517003FC87E /* RewardMeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -535,6 +559,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				B606DD94246014BC00CAA2E6 /* Dummy.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -544,6 +569,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */,
+				B606DDA42461046F00CAA2E6 /* Dummy.swift in Sources */,
 				2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -552,6 +578,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B606DDA52461047100CAA2E6 /* Dummy.swift in Sources */,
 				2DCD954D1E0B4F2C00145EB5 /* RewardMeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -586,8 +613,9 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B09D2595440A1FA49E00C4CB /* Pods-RewardMeTests.debug.xcconfig */;
+			baseConfigurationReference = DFF8B1989C502EC318371828 /* Pods-RewardMe-RewardMeTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
@@ -601,6 +629,10 @@
 				INFOPLIST_FILE = RewardMeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-DFB_SONARKIT_ENABLED=1",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -610,14 +642,16 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RewardMe.app/RewardMe";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4D4F94DD244013BA2C05F355 /* Pods-RewardMeTests.release.xcconfig */;
+			baseConfigurationReference = A01BD7A605BF1672FD9444E1 /* Pods-RewardMe-RewardMeTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
@@ -628,6 +662,10 @@
 				INFOPLIST_FILE = RewardMeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-DFB_SONARKIT_ENABLED=1",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -637,6 +675,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RewardMe.app/RewardMe";
 			};
 			name = Release;
@@ -646,14 +685,30 @@
 			baseConfigurationReference = 2C8D884322C4D9399E441184 /* Pods-RewardMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = TAPWFP66G4;
+				ENABLE_BITCODE = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"FB_SONARKIT_ENABLED=1\n\nFB_SONARKIT_ENABLED=1\nFB_SONARKIT_ENABLED=1",
+				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = RewardMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_VERIFY_BITCODE = NO;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-DFB_SONARKIT_ENABLED=1",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -662,6 +717,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mailtime.rewardme;
 				PRODUCT_NAME = RewardMe;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -671,6 +729,7 @@
 			baseConfigurationReference = AD3657E23D936590108E99FB /* Pods-RewardMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -678,6 +737,15 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = RewardMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_VERIFY_BITCODE = NO;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
+				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-DFB_SONARKIT_ENABLED=1",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -686,6 +754,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mailtime.rewardme;
 				PRODUCT_NAME = RewardMe;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -706,6 +776,10 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "RewardMe-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-DFB_SONARKIT_ENABLED=1",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -735,6 +809,10 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "RewardMe-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-DFB_SONARKIT_ENABLED=1",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -752,6 +830,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 11B31DFFF04ED9C5E9D74B2E /* Pods-RewardMe-tvOSTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -763,6 +842,10 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "RewardMe-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-DFB_SONARKIT_ENABLED=1",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -780,6 +863,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0C660135710DCC1D7AB8AB82 /* Pods-RewardMe-tvOSTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -791,6 +875,10 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "RewardMe-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-DFB_SONARKIT_ENABLED=1",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
