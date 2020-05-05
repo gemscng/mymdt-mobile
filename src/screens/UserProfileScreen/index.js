@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {TouchableWithoutFeedback, Keyboard, View} from 'react-native';
 import {FormattedMessage, useIntl} from 'react-intl';
 import {Formik, useFormikContext} from 'formik';
@@ -7,6 +7,7 @@ import {useMutation} from '@apollo/react-hooks'; // V2.6
 // import {useMutation} from '@apollo/client'; // V3.0 beta
 import {UPDATE_USER_PROFILE_API} from '@/api/data';
 
+import {AuthContext} from '@/context/auth';
 import Input from '@/components/Input';
 import ThemeButton from '@/components/ThemeButton';
 import GenderSelector, {genderOptions} from '@/components/GenderSelector';
@@ -111,7 +112,10 @@ const UserProfileForm = ({showDatePicker, handleDatePickerPress}) => {
 
 const UserProfileScreen = ({navigation}) => {
   const [showDatePicker, setShowDatePicker] = useState(false);
-  const [updateUserProfileRequest, {error}] = useMutation(UPDATE_USER_PROFILE_API);
+  const [updateUserProfileRequest, {error}] = useMutation(
+    UPDATE_USER_PROFILE_API,
+  );
+  const {authToken} = useContext(AuthContext);
 
   const handleDatePickerPress = () => {
     setShowDatePicker(!showDatePicker);
@@ -122,28 +126,31 @@ const UserProfileScreen = ({navigation}) => {
     Keyboard.dismiss();
   };
 
-  const handleSubmitPress = async (values) => {
+  const handleSubmitPress = async values => {
     // fail due to cannot add authorization header
 
-    // try {
-    //   const {data} = await updateUserProfileRequest({
-    //     variables: {
-    //       name: values.name,
-    //       gender: values.gender,
-    //       dateOfBirth: values.dob.toISOString(),
-    //       referalCode: values.referralCode
-    //     },
-    //     context: {
-    //       headers: {
-    //         authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1YmVjZDJlMy04Y2Y1LTQ4NWMtYjZmNC04NjZhOTY2ZTUwZDgiLCJMb2NhbGUiOiJlbi1VUyIsImV4cCI6MTU4ODE1NTI1MCwiaXNzIjoiTWVhc3VyYWJsZSBBSSJ9.1NJE9XmcgbAFvBXk1RkJ_VV4XD66z8gZRakTIVjlsyM',
-    //       }
-    //     }
-    //   });
-    //   updateUserAccountData({isEmailBound: data.login.isEmailBound, isProfileCompleted: data.login.isProfileCompleted})
-    // } catch (e) {
-    //   console.error(e)
-    //   // handle error later
-    // }
+    try {
+      const {data} = await updateUserProfileRequest({
+        variables: {
+          name: values.name,
+          gender: values.gender,
+          dateOfBirth: values.dob.toISOString(),
+          referalCode: values.referralCode,
+        },
+        context: {
+          headers: {
+            authorization: `Bearer ${authToken}`,
+          },
+        },
+      });
+      // updateUserAccountData({
+      //   isEmailBound: data.login.isEmailBound,
+      //   isProfileCompleted: data.login.isProfileCompleted,
+      // });
+    } catch (e) {
+      console.error(e);
+      // handle error later
+    }
 
     navigation.navigate('account_setup_done');
   };

@@ -32,25 +32,33 @@ import Config from 'react-native-config';
 
 // V2.6 using apollo-boost https://www.apollographql.com/docs/react/networking/authentication/
 
-import ApolloClient,{InMemoryCache} from 'apollo-boost';
+import {ApolloClient, HttpLink, InMemoryCache} from '@apollo/client';
 
 const client = new ApolloClient({
-  uri: `${Config.API_SCHEME}://${Config.API_ENDPOINT}`,
-  request: async operation => {
-    operation.setContext({
-      headers: {
-        authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1YmVjZDJlMy04Y2Y1LTQ4NWMtYjZmNC04NjZhOTY2ZTUwZDgiLCJMb2NhbGUiOiJlbi1VUyIsImV4cCI6MTU4ODE0ODU1NiwiaXNzIjoiTWVhc3VyYWJsZSBBSSJ9.vK0jtmBmqVQCOVgN9lxOM4plX0KdTRStLamH8hqlpSc',
-      }
-    });
-  },
-  fetch: (...pl) => {
-    const [_, options] = pl
-    const body = JSON.parse(options.body)
-    console.log(`📡${body.operationName || ''}\n${body.query}`, body.variables)
-    console.log('headers', body.headers)
-    return fetch(...pl)
-  },
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
+  link: new HttpLink({
+    uri: `${Config.API_SCHEME}://${Config.API_ENDPOINT}`,
+  }),
 });
+
+// const client = new ApolloClient({
+//   uri: `${Config.API_SCHEME}://${Config.API_ENDPOINT}`,
+//   request: async operation => {
+//     operation.setContext({
+//       headers: {
+//         authorization:
+//           'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI1YmVjZDJlMy04Y2Y1LTQ4NWMtYjZmNC04NjZhOTY2ZTUwZDgiLCJMb2NhbGUiOiJlbi1VUyIsImV4cCI6MTU4ODE0ODU1NiwiaXNzIjoiTWVhc3VyYWJsZSBBSSJ9.vK0jtmBmqVQCOVgN9lxOM4plX0KdTRStLamH8hqlpSc',
+//       },
+//     });
+//   },
+//   fetch: (...pl) => {
+//     const [_, options] = pl;
+//     const body = JSON.parse(options.body);
+//     console.log(`📡${body.operationName || ''}\n${body.query}`, body.variables);
+//     console.log('headers', body.headers);
+//     return fetch(...pl);
+//   },
+//   cache: new InMemoryCache(),
+// });
 
 export default client;

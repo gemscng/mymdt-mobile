@@ -115,7 +115,7 @@ const SignInForm = ({isSignUp}) => {
     try {
       await otpRequest({
         variables: {
-          phoneNumber: values.phonePrefix + ' ' + values.phone,
+          phoneNumber: values.phonePrefix + values.phone,
           locale: localeEnum,
           action: state.formType,
         },
@@ -208,7 +208,7 @@ const SigninScreen = ({route, navigation}) => {
   const [loginRequest, {error}] = useMutation(LOGIN_API);
 
   const handleSubmitPress = async values => {
-    const completePhoneNumber = values.phonePrefix + ' ' + values.phone;
+    const completePhoneNumber = values.phonePrefix + values.phone;
     if (isSignUp) {
       let userData = {
         phone: completePhoneNumber,
