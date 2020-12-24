@@ -74,12 +74,6 @@ const HomeScreen = ({navigation}) => {
     (ams) => ams.level === userNextLevel,
   );
 
-  useFocusEffect(
-    useCallback(() => {
-      refetch();
-    }, [refetch]),
-  );
-
   const {data: authData} = useQuery(AUTH_TOKENS);
   const fetcher = async (...args) => {
     const res = await fetch(...args, {
@@ -97,11 +91,22 @@ const HomeScreen = ({navigation}) => {
     return res.json();
   };
 
-  const {data: summaryData, error: summaryError} = useSWR(url, fetcher);
+  const {data: summaryData, error: summaryError, revalidate} = useSWR(
+    url,
+    fetcher,
+  );
   const isSummaryLoading = !summaryData && !summaryError;
   const cashBackTotal = summaryData?.data?.totalCashback * conversionRate || 0;
   const cashBackTotalInPeriod =
     summaryData?.data?.totalCashbackInPeriod * conversionRate || 0;
+
+  useFocusEffect(
+    useCallback(() => {
+      refetch();
+      revalidate();
+    }, [refetch, revalidate]),
+  );
+
   // TODO: handle error
 
   const quickActionList = [
