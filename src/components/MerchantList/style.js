@@ -38,11 +38,6 @@ export const checkBox = (theme) => css`
   border: 2px solid ${theme.colors.contrastColor};
 `;
 
-export const icon = css`
-  width: 80px;
-  height: 80px;
-`;
-
 export const merchantNameStyle = (theme) => css`
   margin-top: 8px;
   margin-bottom: 4px;

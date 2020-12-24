@@ -5,7 +5,6 @@ import {
   container,
   merchant as merchantContainer,
   checkBox,
-  icon,
   stateContainer,
   merchantNameStyle,
 } from './style';
