@@ -182,20 +182,26 @@ const CashBackSummarySection = ({
             defaultMessage="Cash Back from Selected Merchants"
           />
         </AppText>
-        {summaryData?.data?.merchantSummaryInfos?.map((merchantSummary) => (
-          <CashBackItem
-            icon={{
-              uri: merchantsData?.find(
-                (merchant) => merchant.id === merchantSummary.merchantId,
-              )?.logo,
-            }}
-            brand={merchantSummary.merchant}
-            earnInTotal={merchantSummary.totalCashback * meToUseConversionRate}
-            earnInPeriod={
-              merchantSummary.totalCashbackInPeriod * meToUseConversionRate
-            }
-          />
-        ))}
+        {summaryData?.data?.merchantSummaryInfos
+          .sort((a, b) => {
+            return b.totalCashback - a.totalCashback;
+          })
+          .map((merchantSummary) => (
+            <CashBackItem
+              icon={{
+                uri: merchantsData?.find(
+                  (merchant) => merchant.id === merchantSummary.merchantId,
+                )?.logo,
+              }}
+              brand={merchantSummary.merchant}
+              earnInTotal={
+                merchantSummary.totalCashback * meToUseConversionRate
+              }
+              earnInPeriod={
+                merchantSummary.totalCashbackInPeriod * meToUseConversionRate
+              }
+            />
+          ))}
         <AppButton
           onPress={() =>
             navigation.navigate('settings', {screen: 'offers_preference_edit'})
