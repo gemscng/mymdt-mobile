@@ -132,7 +132,7 @@ const CashBackSummarySection = ({
                     />{' '}
                     <FormattedNumber2Decimal
                       value={Number(
-                        summaryData?.data?.total_cashback_in_period *
+                        summaryData?.data?.totalCashbackInPeriod *
                           meToUseConversionRate || 0,
                       )}
                     />
@@ -153,7 +153,7 @@ const CashBackSummarySection = ({
                     />{' '}
                     <FormattedNumber2Decimal
                       value={Number(
-                        summaryData?.data.total_cashback *
+                        summaryData?.data.totalCashback *
                           meToUseConversionRate || 0,
                       )}
                     />
@@ -182,19 +182,17 @@ const CashBackSummarySection = ({
             defaultMessage="Cash Back from Selected Merchants"
           />
         </AppText>
-        {summaryData?.data?.merchant_summary_infos.map((merchant_summary) => (
+        {summaryData?.data?.merchantSummaryInfos?.map((merchantSummary) => (
           <CashBackItem
             icon={{
               uri: merchantsData?.find(
-                (merchant) => merchant.id === merchant_summary.merchant_id,
+                (merchant) => merchant.id === merchantSummary.merchantId,
               )?.logo,
             }}
-            brand={merchant_summary.merchant}
-            earnInTotal={
-              merchant_summary.total_cashback * meToUseConversionRate
-            }
+            brand={merchantSummary.merchant}
+            earnInTotal={merchantSummary.totalCashback * meToUseConversionRate}
             earnInPeriod={
-              merchant_summary.total_cashback_in_period * meToUseConversionRate
+              merchantSummary.totalCashbackInPeriod * meToUseConversionRate
             }
           />
         ))}

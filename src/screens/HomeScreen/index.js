@@ -99,9 +99,9 @@ const HomeScreen = ({navigation}) => {
 
   const {data: summaryData, error: summaryError} = useSWR(url, fetcher);
   const isSummaryLoading = !summaryData && !summaryError;
-  const cashBackTotal = summaryData?.data?.total_cashback * conversionRate || 0;
+  const cashBackTotal = summaryData?.data?.totalCashback * conversionRate || 0;
   const cashBackTotalInPeriod =
-    summaryData?.data?.total_cashback_in_period * conversionRate || 0;
+    summaryData?.data?.totalCashbackInPeriod * conversionRate || 0;
   // TODO: handle error
 
   const quickActionList = [

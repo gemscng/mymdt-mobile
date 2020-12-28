@@ -126,25 +126,25 @@ const CashBackSummaryScreen = ({navigation, route}) => {
                 sizeVariant="small"
                 ImgSrc={{
                   uri: merchantsData?.merchants.find(
-                    (merchant) => merchant.id === h.node.merchant_id,
+                    (merchant) => merchant.id === h.node.merchantId,
                   )?.logo,
                 }}
               />
             ),
             node: {
               amount: h.node.cashback,
-              cashbackRate: h.node.cashback_rate,
-              cashbackCurrencyCode: h.node.cashback_currency_code,
+              cashbackRate: h.node.cashbackRate,
+              cashbackCurrencyCode: h.node.cashbackCurrencyCode,
               id: h.node.id,
               title: h.node.merchant,
-              transactionTime: h.node.created_at,
+              transactionTime: h.node.createdAt,
               type: h.node.provider,
               data: {
-                email: h.node.data?.account_email,
-                senderEmail: h.node.data?.sender_email,
-                emailSubject: h.node.data?.email_subject,
-                receiveTime: h.node.data?.received_time * 1000,
-                amount: h.node.data?.amount_usd || h.node.data?.amount,
+                email: h.node.data?.accountEmail,
+                senderEmail: h.node.data?.senderEmail,
+                emailSubject: h.node.data?.emailSubject,
+                receiveTime: h.node.data?.receivedTime * 1000,
+                amount: h.node.purchaseAmount,
                 subType: h.node.data?.subType,
                 mask: h.node.data?.mask,
               },
