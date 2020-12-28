@@ -7,7 +7,7 @@ const {width: viewportWidth} = Dimensions.get('window');
 
 const MDTGiftBox = () => (
   <LottieView
-    source={require('./get_mdt.json')}
+    source={require('./get_me_token.json')}
     resizeMode="contain"
     autoPlay
     loop

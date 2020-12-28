@@ -15,7 +15,7 @@ import {
 
 import {REWARD_DOLLAR, ME} from '@/constants/currency';
 import MRPGiftBox from '@/components/MRPGiftBox';
-import MDTGiftBox from '@/components/MDTGiftBox';
+import MeGiftBox from '@/components/MeGiftBox';
 import AppText from '@/components/AppText2';
 import PopupModalWithLinearGradient from '@/components/PopupModalWithLinearGradient';
 import TransactionAmount from '@/components/TransactionAmount';
@@ -52,7 +52,7 @@ const RewardGotPopup = ({rewardName, rewardAmount, onOkPress, ...props}) => {
   return (
     <PopupModalWithLinearGradient callback={onOkPress} {...props}>
       {convert ? (
-        <MDTGiftBox style={giftBoxStyle} />
+        <MeGiftBox style={giftBoxStyle} />
       ) : (
         <MRPGiftBox style={giftBoxStyle} />
       )}

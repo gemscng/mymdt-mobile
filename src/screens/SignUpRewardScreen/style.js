@@ -5,14 +5,6 @@ export const gotRewardText = (theme) => css`
   text-align: center;
 `;
 
-export const giftIcon = css`
-  width: 145px;
-  height: 174px;
-  align-self: center;
-  margin-top: 64px;
-  margin-bottom: 64px;
-`;
-
 export const readyContainer = css`
   flex: 1;
   align-content: center;

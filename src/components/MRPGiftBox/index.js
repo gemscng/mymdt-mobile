@@ -1,11 +1,20 @@
 import React from 'react';
 
-import GiftBoxOpen from '@/components/GiftBoxOpen';
+import {Dimensions} from 'react-native';
+import LottieView from 'lottie-react-native';
 
-const coinIconSource = require('@/assets/mrp_coin.png');
+const {width: viewportWidth} = Dimensions.get('window');
 
-const MRPGiftBox = props => (
-  <GiftBoxOpen coinIconSource={coinIconSource} {...props} />
+const MDTGiftBox = () => (
+  <LottieView
+    source={require('./get_reward_dollar.json')}
+    resizeMode="contain"
+    autoPlay
+    loop
+    style={{
+      width: viewportWidth,
+    }}
+  />
 );
 
-export default MRPGiftBox;
+export default MDTGiftBox;

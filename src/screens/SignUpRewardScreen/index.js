@@ -1,9 +1,10 @@
 import React, {useRef, useEffect, useState} from 'react';
-import {Animated, View, TouchableOpacity, Image} from 'react-native';
+import {Animated, View, TouchableOpacity, Dimensions} from 'react-native';
 import {FormattedMessage} from 'react-intl';
 
 import LinearGradientBackground from '@/components/LinearGradientBackground';
-import MDTGiftBox from '@/components/MDTGiftBox';
+import MRPGiftBox from '@/components/MRPGiftBox';
+import MeGiftBox from '@/components/MeGiftBox';
 import AppButton from '@/components/AppButton';
 import AppText from '@/components/AppText2';
 import TransactionAmount from '@/components/TransactionAmount';
@@ -11,6 +12,7 @@ import useSetupFlow from '@/hooks/useSetupFlow';
 import {REWARD_DOLLAR, ME} from '@/constants/currency';
 import useQueryWithAuth from '@/hooks/useQueryWithAuth';
 import {GET_CURRENCY_CODE, GET_CONVERSION_RATE_API} from '@/api/data';
+import LottieView from 'lottie-react-native';
 
 import {
   openContainer,
@@ -18,10 +20,11 @@ import {
   gotRewardText,
   giftContainer,
   textContainer,
-  giftIcon,
   inner,
 } from './style';
 import {useTheme} from 'emotion-theming';
+
+const {width: viewportWidth} = Dimensions.get('window');
 
 const AnimatedText = (props) => {
   const fadeAnim = useRef(new Animated.Value(0.2)).current;
@@ -54,40 +57,6 @@ const AnimatedText = (props) => {
   );
 };
 
-const AnimatedFloat = (props) => {
-  const floatAnim = useRef(new Animated.Value(0)).current;
-  useEffect(() => {
-    const float = () => {
-      Animated.sequence([
-        Animated.timing(floatAnim, {
-          toValue: 4,
-          duration: 500,
-          useNativeDriver: true,
-        }),
-        Animated.timing(floatAnim, {
-          toValue: -4,
-          duration: 1000,
-          useNativeDriver: true,
-        }),
-      ]).start(() => float());
-    };
-    float();
-  });
-
-  return (
-    <Animated.View
-      style={{
-        transform: [
-          {
-            translateY: floatAnim,
-          },
-        ],
-      }}>
-      {props.children}
-    </Animated.View>
-  );
-};
-
 const GiftBoxReady = ({onPress}) => {
   const theme = useTheme();
   return (
@@ -95,15 +64,13 @@ const GiftBoxReady = ({onPress}) => {
       activeOpacity={1}
       onPress={onPress}
       style={readyContainer}>
-      <AppText variant="heading4" style={gotRewardText(theme)}>
-        <FormattedMessage
-          id="got_sign_up_reward"
-          default="You got a sign-up reward"
-        />
-      </AppText>
-      <AnimatedFloat>
-        <Image source={require('@/assets/icon_gift.png')} style={giftIcon} />
-      </AnimatedFloat>
+      <LottieView
+        source={require('./giftbox.json')}
+        resizeMode="cover"
+        autoPlay
+        loop
+        style={{width: viewportWidth}}
+      />
       <AnimatedText>
         <AppText variant="heading1" style={gotRewardText(theme)}>
           <FormattedMessage id="tap_to_open" default="Tap to open" />
@@ -122,7 +89,7 @@ const GiftBoxOpened = ({isRewardDollar, rewardAmount, handleContinuePress}) => {
   return (
     <View style={openContainer}>
       <View style={giftContainer}>
-        <MDTGiftBox />
+        {isRewardDollar ? <MRPGiftBox /> : <MeGiftBox />}
         <View style={textContainer}>
           <AppText variant="heading1" style={{color: TextColor}}>
             <FormattedMessage id="you_got" default="You got" />{' '}
