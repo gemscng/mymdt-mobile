@@ -1,4 +1,5 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useCallback} from 'react';
+import {useFocusEffect} from '@react-navigation/native';
 import {FormattedMessage} from 'react-intl';
 
 import useQueryWithAuth from '@/hooks/useQueryWithAuth';
@@ -17,6 +18,12 @@ const BonusScreen = (props) => {
   const {data, refetch} = useQueryWithAuth(GET_USER_TASK_GROUPS_AND_REWARD_API);
 
   const userRewardList = data?.userProfile?.rewards;
+
+  useFocusEffect(
+    useCallback(() => {
+      refetch();
+    }, [refetch]),
+  );
 
   const handleOnClaimPress = () => {
     refetch();
