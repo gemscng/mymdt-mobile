@@ -1,20 +1,16 @@
 import React from 'react';
 
-import {Dimensions} from 'react-native';
 import LottieView from 'lottie-react-native';
+import {animation} from './style';
 
-const {width: viewportWidth} = Dimensions.get('window');
-
-const MDTGiftBox = () => (
+const MeGiftBox = () => (
   <LottieView
     source={require('./get_me_token.json')}
     resizeMode="contain"
     autoPlay
     loop
-    style={{
-      width: viewportWidth,
-    }}
+    style={animation}
   />
 );
 
-export default MDTGiftBox;
+export default MeGiftBox;

@@ -11,6 +11,7 @@ import {
   gotRewardText,
   convertedContainer,
   centered,
+  container,
 } from './style';
 
 import {REWARD_DOLLAR, ME} from '@/constants/currency';
@@ -19,14 +20,6 @@ import MeGiftBox from '@/components/MeGiftBox';
 import AppText from '@/components/AppText2';
 import PopupModalWithLinearGradient from '@/components/PopupModalWithLinearGradient';
 import TransactionAmount from '@/components/TransactionAmount';
-
-const giftBoxStyle = {
-  transform: [
-    {
-      scale: 0.75,
-    },
-  ],
-};
 
 const RewardGotPopup = ({rewardName, rewardAmount, onOkPress, ...props}) => {
   const theme = useTheme();
@@ -51,11 +44,7 @@ const RewardGotPopup = ({rewardName, rewardAmount, onOkPress, ...props}) => {
 
   return (
     <PopupModalWithLinearGradient callback={onOkPress} {...props}>
-      {convert ? (
-        <MeGiftBox style={giftBoxStyle} />
-      ) : (
-        <MRPGiftBox style={giftBoxStyle} />
-      )}
+      <View style={container}>{convert ? <MeGiftBox /> : <MRPGiftBox />}</View>
       <AppText
         variant="heading4"
         style={[

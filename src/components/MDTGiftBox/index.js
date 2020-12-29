@@ -1,9 +1,7 @@
 import React from 'react';
 
-import {Dimensions} from 'react-native';
 import LottieView from 'lottie-react-native';
-
-const {width: viewportWidth} = Dimensions.get('window');
+import {animation} from './style';
 
 const MDTGiftBox = () => (
   <LottieView
@@ -11,9 +9,7 @@ const MDTGiftBox = () => (
     resizeMode="contain"
     autoPlay
     loop
-    style={{
-      width: viewportWidth,
-    }}
+    style={animation}
   />
 );
 
