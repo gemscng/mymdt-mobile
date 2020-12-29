@@ -6,6 +6,7 @@ export const label = (theme, focused) => css`
     ? theme.colors.background1
     : theme.colors.textOnBackground.mediumEmphasis};
   margin-top: 8px;
+  text-align: center;
 `;
 
 export const styles = StyleSheet.create({
