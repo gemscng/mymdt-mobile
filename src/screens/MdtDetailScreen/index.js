@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, ScrollView, Image} from 'react-native';
+import {View, ScrollView, Image, TouchableOpacity} from 'react-native';
 import {useTheme} from 'emotion-theming';
 import Config from 'react-native-config';
 import SafeAreaView from 'react-native-safe-area-view';
@@ -78,6 +78,10 @@ const MdtDetailScreen = ({navigation}) => {
   let mdtTotalAmount =
     mdtAmount + (staking?.stakingPlan ? staking.stakingPlan.amount : 0);
 
+  const handleBannerPress = () => {
+    navigation.navigate('membership_detail', {showNextStaking: true});
+  };
+
   return (
     <ScrollView>
       <SafeAreaView style={container(theme)}>
@@ -146,10 +150,12 @@ const MdtDetailScreen = ({navigation}) => {
           availableMdt={mdtAmount}
         />
       ) : (
-        <Image
-          source={require('@/assets/stake_to_upgrade_banner.png')}
-          style={banner}
-        />
+        <TouchableOpacity onPress={handleBannerPress}>
+          <Image
+            source={require('@/assets/stake_to_upgrade_banner.png')}
+            style={banner}
+          />
+        </TouchableOpacity>
       )}
       <MdtTransactionHistory
         navigation={navigation}
