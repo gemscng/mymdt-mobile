@@ -43,15 +43,16 @@ const MerchantList = ({
   merchantsLimit,
   onError,
 }) => {
-  const isError = !selectedMerchants
-    ? true
-    : selectedMerchants.length > merchantsLimit;
+  const isError =
+    !selectedMerchants || selectedMerchants.length > merchantsLimit;
+  const merchantDisabled = !selectedMerchants || !setSelectedMerchants;
+  const buttonDisabled = isError || selectedMerchants.length < merchantsLimit;
 
   useEffect(() => {
     if (onError) {
-      onError(isError);
+      onError(isError, buttonDisabled);
     }
-  }, [isError, onError]);
+  }, [isError, onError, buttonDisabled]);
 
   const onSelect = (merchant) => {
     // deselect merchant
@@ -92,7 +93,7 @@ const MerchantList = ({
               !!selectedMerchants.find((sb) => sb.id === merchant.id)
             }
             onPress={() => setSelectedMerchants && onSelect(merchant)}
-            disabled={!selectedMerchants || !setSelectedMerchants}
+            disabled={merchantDisabled}
             isError={isError}
           />
         ))}

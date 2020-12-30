@@ -35,6 +35,8 @@ const MerchantSelectScreen = ({route, navigation}) => {
   const [selectedMerchants, setSelectedMerchants] = useState([]);
   const [showConfirmPopup, setShowConfirmPopup] = useState(false);
   const [isErrorFromMerchantList, setIsErrorFromMerchantList] = useState(false);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+  // TODO: refactor these cumbersome states
   const {data, loading, error} = useQueryWithAuth(GET_MERCHANTS_API);
   const {
     data: allowedMerchantNum,
@@ -65,8 +67,9 @@ const MerchantSelectScreen = ({route, navigation}) => {
     setShowConfirmPopup(true);
   };
 
-  const handleError = useCallback((isError) => {
+  const handleError = useCallback((isError, buttonDisabled) => {
     setIsErrorFromMerchantList(isError);
+    setIsButtonDisabled(buttonDisabled);
   }, []);
 
   const handleSubmitMerchant = async () => {
@@ -153,7 +156,7 @@ const MerchantSelectScreen = ({route, navigation}) => {
           </AppText>
           <AppButton
             onPress={handleNextPress}
-            disabled={isErrorFromMerchantList}
+            disabled={isErrorFromMerchantList || isButtonDisabled}
             text={
               <FormattedMessage id="button.confirm" defaultMessage="confirm" />
             }
