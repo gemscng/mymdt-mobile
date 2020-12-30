@@ -257,7 +257,7 @@
   "transaction_date": "Transaction Date",
   "cashback_percentage": "{percentage}% Cash Back",
   "cashback_from_number_of_merchants": "Cash Back From {number} Merchants",
-  "staking_interest_rate_percentage_return_in_new_token": "{percentage}% p.a. MDT Stake Rewards Return in New Token*",
+  "staking_interest_rate_percentage_return_in_new_token": "{percentage}% p.a. MDT Stake Rewards Return in {token}*",
   "internal_invitation_only": "Internal Invitation Only",
   "complete_account_setup": "Complete Account Setup",
   "or": "Or",
