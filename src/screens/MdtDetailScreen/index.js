@@ -75,7 +75,8 @@ const MdtDetailScreen = ({navigation}) => {
 
   // TODO: currently only one staking plan will exist. It can change in the future
   const staking = userStakingInfoData?.userProfile?.staking?.[0];
-  const mdtTotalAmount = mdtAmount + staking?.stakingPlan?.amount;
+  let mdtTotalAmount =
+    mdtAmount + (staking?.stakingPlan ? staking.stakingPlan.amount : 0);
 
   return (
     <ScrollView>

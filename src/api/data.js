@@ -296,6 +296,10 @@ export const GET_CURRENCY_BALANCE_API = gql`
         id
         currencyCode
         balance
+        wallets {
+          type
+          address
+        }
       }
     }
   }

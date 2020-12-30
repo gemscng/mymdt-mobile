@@ -52,7 +52,6 @@ const StackScreen = ({navigation, route}) => {
   const {data, loading} = useQueryWithAuth(GET_CURRENCY_BALANCE_API, {
     variables: {currencyCode: MEASURABLE_DATA_TOKEN},
   });
-  const [address] = useState('0x16qjQCfDS4LV3MkgWCe8CFm5WD3FFmZwKH');
   const [showConfirmStakeModal, setShowConfirmStakeModal] = useState(false);
   const stakingPlan = route.params;
 
@@ -60,6 +59,11 @@ const StackScreen = ({navigation, route}) => {
     variables: {id: stakingPlan.id},
   });
   const availableMdt = data?.userProfile?.currencyAccounts[0]?.balance || 0;
+  //TODO: It will need to switch wallet in the future
+  const address = data?.userProfile?.currencyAccounts[0]?.wallets.filter(
+    (w) => w.type === 'eth',
+  )[0].address;
+
   const stakeAmount = stakingPlan.amount;
   const stakeDate = new Date();
   const expectedAvailableDate = new Date().setDate(
