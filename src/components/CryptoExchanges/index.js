@@ -48,29 +48,39 @@ const CryptoExchanges = () => {
   let binanceUrl = '';
   let okexUrl = '';
   let digifinexUrl = '';
+  let poloniexUrl = '';
 
   if (isChinaPhoneNumber) {
     binanceUrl = 'https://accounts.binancezh.pro/cn/register?ref=VXR61SQI';
     okexUrl = 'https://www.okex.com/join/1/1838164';
     digifinexUrl = 'https://www.digifinex.xyz/zh-cn/from/lpKlJk';
+    poloniexUrl = 'https://poloniex.com/signup?c=SVEPCE4E&ref=mdt.io';
   } else {
     switch (locale) {
       case locales.EN_US:
         binanceUrl = 'https://www.binance.com/en/register?ref=VXR61SQI';
         okexUrl = 'https://www.okex.com/join/1/1838164';
         digifinexUrl = 'https://www.digifinex.xyz/en-ww/from/lpKlJk';
+        poloniexUrl = 'https://poloniex.com/signup?c=SVEPCE4E&ref=mdt.io';
         break;
       case locales.ZH_HK:
         binanceUrl = 'https://accounts.binance.com/tw/register?ref=VXR61SQI';
         okexUrl = 'https://www.okex.com/join/1/1838164';
         digifinexUrl = 'https://www.digifinex.xyz/zh-hk/from/lpKlJk';
+        poloniexUrl = 'https://poloniex.com/signup?c=SVEPCE4E&ref=mdt.io';
         break;
       case locales.ZH_CN:
         binanceUrl = 'https://accounts.binance.com/cn/register?ref=VXR61SQI';
         okexUrl = 'https://www.okex.com/join/1/1838164';
         digifinexUrl = 'https://www.digifinex.xyz/zh-cn/from/lpKlJk';
+        poloniexUrl = 'https://poloniex.com/signup?c=SVEPCE4E&ref=mdt.io';
         break;
       default:
+        // default using english version
+        binanceUrl = 'https://www.binance.com/en/register?ref=VXR61SQI';
+        okexUrl = 'https://www.okex.com/join/1/1838164';
+        digifinexUrl = 'https://www.digifinex.xyz/en-ww/from/lpKlJk';
+        poloniexUrl = 'https://poloniex.com/signup?c=SVEPCE4E&ref=mdt.io';
         break;
     }
   }
@@ -110,6 +120,18 @@ const CryptoExchanges = () => {
           <FormattedMessage id="okex" defaultMessage="OKEx" />
         </AppText>
         <ReferralLink url={okexUrl} />
+      </View>
+      <View style={rowContainer}>
+        <AppAvator
+          variant="default"
+          sizeVariant="small"
+          imageSrc={require('@/assets/icon_poloniex.png')}
+          style={exchangesImage}
+        />
+        <AppText variant="body1" style={exchangesName(theme)}>
+          <FormattedMessage id="poloniex" defaultMessage="Poloniex" />
+        </AppText>
+        <ReferralLink url={poloniexUrl} />
       </View>
       <View style={rowContainer}>
         <AppAvator

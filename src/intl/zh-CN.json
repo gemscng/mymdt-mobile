@@ -298,6 +298,7 @@
   "select_number_of_merchants": "{number_of_merchants, plural, =0 {选取} one {选取 # 个商戶} other {选取 # 个商戶}}",
   "detail": "Detail",
   "this_card_is_already_bound": "This card is already bound to an account. Please contact support@reward.me if you think there is any problem.",
+  "poloniex": "Poloniex",
   "transactionType": {
     "reward": "Reward",
     "redeem": "Redeem",
