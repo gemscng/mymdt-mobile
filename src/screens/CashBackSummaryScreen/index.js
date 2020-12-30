@@ -217,6 +217,10 @@ const CashBackSummaryScreen = ({navigation, route}) => {
     theme.colors.contrastColor,
   ]);
 
+  const handleBannerPress = () => {
+    navigation.navigate('membership_detail', {showNextLevel: true});
+  };
+
   return (
     <>
       <VirtualizedList
@@ -246,11 +250,13 @@ const CashBackSummaryScreen = ({navigation, route}) => {
                 }
                 amount={cashBackTotal}
               />
-              <Image
-                style={banner}
-                source={require('@/assets/upgrade_promotion_banner.png')}
-                resizeMode="cover"
-              />
+              <TouchableOpacity onPress={handleBannerPress}>
+                <Image
+                  style={banner}
+                  source={require('@/assets/upgrade_promotion_banner.png')}
+                  resizeMode="cover"
+                />
+              </TouchableOpacity>
             </View>
           </>
         }
