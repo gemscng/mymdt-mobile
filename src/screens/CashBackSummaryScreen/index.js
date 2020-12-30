@@ -45,7 +45,7 @@ import {FormattedMessage} from 'react-intl';
 import {useSWRInfinite} from 'swr';
 
 import Config from 'react-native-config';
-const url = `${Config.DISTRIBUTE_API_SCHEME}${Config.DISTRIBUTE_API_ENDPOINT}/cashback/histories`;
+const url = `${Config.DISTRIBUTE_API_SCHEME}://${Config.DISTRIBUTE_API_ENDPOINT}/cashback/histories`;
 
 const getKey = (pageIndex, previousPageData) => {
   // reached the end
