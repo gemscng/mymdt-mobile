@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
+import {TextInput, View} from 'react-native';
 import {useTheme} from 'emotion-theming';
 import {
-  Container,
-  TextInput,
-  TextInputContainer,
+  container,
   errorStyle,
   remarkStyle,
   labelStyle,
+  textInput,
 } from './style';
 import {useField} from 'formik';
 
@@ -25,6 +25,7 @@ import AppText from '@/components/AppText2';
  * @property {TextStyle} remarkOuterStyle
  * @property {TextStyle} textStyle
  * @property {ViewStyle} style
+ * @property {'secondary|primary'} colorVariant
  *
  * @typedef {import('react-native').TextInputProps} TextInputProps
  * @type {import('react').FunctionComponent<TextInputProps & Props>}
@@ -38,12 +39,17 @@ const Input = ({
   remarkOuterStyle,
   textStyle,
   style,
+  colorVariant,
   ...props
 }) => {
   const theme = useTheme();
   const [isFocus, setIsFocus] = useState(false);
   const [field, meta] = useField(name);
   const isError = meta.touched && meta.error;
+  const themeColor =
+    colorVariant === 'secondary'
+      ? theme.colors.secondary.normal
+      : theme.colors.primary.normal;
 
   const handleOnFocus = () => {
     setIsFocus(true);
@@ -55,31 +61,40 @@ const Input = ({
   };
 
   return (
-    <Container style={style}>
+    <View style={[container, style]}>
       <AppText
         variant="label"
-        style={labelStyle(theme, isFocus, isError)}
+        style={[
+          labelStyle(theme),
+          isFocus && {color: themeColor},
+          isError && {color: theme.colors.textOnError.normal},
+        ]}
         numberOfLines={1}
         ellipsizeMode="clip">
         {label ? label : ' '}
         {required && '*'}
       </AppText>
-      <TextInputContainer
+      <TextInput
+        {...props}
+        onFocus={handleOnFocus}
+        onChangeText={field.onChange(name)}
+        onBlur={handleOnBlur}
+        value={field.value}
+        autoCapitalize="none"
         isError={isError}
-        isFocus={isFocus}
-        readOnly={readOnly}>
-        <TextInput
-          {...props}
-          onFocus={handleOnFocus}
-          onChangeText={field.onChange(name)}
-          onBlur={handleOnBlur}
-          value={field.value}
-          autoCapitalize="none"
-          isError={isError}
-          placeholderTextColor={theme.colors.textOnBackground.disabled}
-          style={textStyle}
-        />
-      </TextInputContainer>
+        placeholderTextColor={theme.colors.textOnBackground.disabled}
+        style={[
+          textInput(theme, isFocus, themeColor),
+          isError && {
+            color: theme.colors.textOnError.normal,
+            backgroundColor: theme.colors.errorBackground,
+          },
+          isFocus && {
+            backgroundColor: theme.colors.inputFocusBackground,
+          },
+          textStyle,
+        ]}
+      />
       {remark && (
         <AppText
           variant="caption"
@@ -94,7 +109,12 @@ const Input = ({
         ellipsizeMode="clip">
         {isError ? meta.error : ' '}
       </AppText>
-    </Container>
+    </View>
   );
 };
+
+Input.defaultProps = {
+  colorVariant: 'secondary',
+};
+
 export default Input;

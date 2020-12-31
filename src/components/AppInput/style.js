@@ -1,45 +1,30 @@
-import styled, {css} from '@emotion/native';
+import {css} from '@emotion/native';
 
-export const TextInput = styled.TextInput`
+export const textInput = (theme, isFocus, themeColor) => css`
   padding: 14px 16px;
   font-size: 16px;
-  line-height: 19px;
-  color: ${props => props.theme.colors.contrastColor};
-  ${props =>
-    props.isError && `color: ${props.theme.colors.textOnError.normal};`};
-`;
-
-export const TextInputContainer = styled.View`
+  line-height: 20px;
   border-radius: 8px;
-  border: 2px solid transparent;
-  margin: 4px 0;
-  background-color: ${props => props.theme.colors.background2};
-  ${props =>
-    props.isError && `background-color: ${props.theme.colors.errorBackground}`};
-  ${props =>
-    props.isFocus &&
-    `border: 2px solid ${props.theme.colors.secondary.normal}; 
-    background-color: ${props.theme.colors.inputFocusBackground}`};
-  ${props =>
-    props.readOnly &&
-    `border: 2px solid transparent; 
-    background-color: transparent`};
+  border-width: 2px;
+  border-style: solid;
+  border-color: ${isFocus ? themeColor : 'transparent'};
+  margin-vertical: 4px;
+  color: ${theme.colors.contrastColor};
+  background-color: ${theme.colors.background2};
 `;
 
-export const Container = styled.View`
+export const container = css`
   min-width: 65%;
 `;
 
-export const labelStyle = (theme, isFocus, isError) => css`
+export const labelStyle = (theme) => css`
   color: ${theme.colors.contrastColor};
-  ${isFocus && `color: ${theme.colors.secondary.normal};`};
-  ${isError && `color: ${theme.colors.textOnError.normal};`};
 `;
 
-export const remarkStyle = theme => css`
+export const remarkStyle = (theme) => css`
   color: ${theme.colors.textOnBackground.mediumEmphasis};
 `;
 
-export const errorStyle = theme => css`
+export const errorStyle = (theme) => css`
   color: ${theme.colors.textOnError.light};
 `;
