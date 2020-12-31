@@ -1,7 +1,7 @@
 import React, {useCallback} from 'react';
 import {useFocusEffect} from '@react-navigation/native';
 import {View, TouchableOpacity, ScrollView} from 'react-native';
-import {TRANSACTIONS_QUERY} from '@/api/data';
+import {TRANSACTIONS_QUERY, GET_USER_STAKING_INFO} from '@/api/data';
 import useQueryWithAuth from '@/hooks/useQueryWithAuth';
 import useCurrencyConvertToUsd from '@/hooks/useCurrencyConvertToUsd';
 import {useTheme} from 'emotion-theming';
@@ -104,6 +104,11 @@ const WalletScreen = ({navigation}) => {
     fetchPolicy: 'network-only',
   });
 
+  const {
+    data: userStakingInfoData,
+    loading: userStakingInfoLoading,
+  } = useQueryWithAuth(GET_USER_STAKING_INFO);
+
   useFocusEffect(
     useCallback(() => {
       refetch();
@@ -114,10 +119,18 @@ const WalletScreen = ({navigation}) => {
     data?.userProfile?.currencyAccounts.find(
       (ca) => ca.currencyCode === REWARD_DOLLAR,
     )?.balance || 0;
-  const mdtAmount =
+
+  const mdtAvailableAmount =
     data?.userProfile?.currencyAccounts.find(
       (ca) => ca.currencyCode === MEASURABLE_DATA_TOKEN,
     )?.balance || 0;
+
+  const staking = userStakingInfoData?.userProfile?.staking?.[0];
+  const mdtStakingAmount = staking?.stakingPlan
+    ? staking.stakingPlan.amount
+    : 0;
+  const mdtTotalAmount = mdtAvailableAmount + mdtStakingAmount;
+
   const meAmount =
     data?.userProfile?.currencyAccounts.find((ca) => ca.currencyCode === ME)
       ?.balance || 0;
@@ -127,7 +140,7 @@ const WalletScreen = ({navigation}) => {
   );
   const {conversionRate: meToUsdRate} = useCurrencyConvertToUsd(ME);
   const rdToUsdAmount = rdAmount * rdToUsdRate;
-  const mdtToUsdAmount = mdtAmount * mdtToUsdRate;
+  const mdtToUsdAmount = mdtTotalAmount * mdtToUsdRate;
   const meToUsdAmount = meAmount * meToUsdRate;
   const totalBalance = rdToUsdAmount + mdtToUsdAmount + meToUsdAmount;
 
@@ -188,7 +201,7 @@ const WalletScreen = ({navigation}) => {
                 defaultMessage="total balance"
               />
             </AppText>
-            {loading ? (
+            {loading || userStakingInfoLoading ? (
               <LoadingSpinner color={theme.colors.background1} />
             ) : (
               <TransactionAmount
@@ -218,14 +231,14 @@ const WalletScreen = ({navigation}) => {
             />
             <View style={separator(theme)} />
             <CurrencyAccountItem
-              loading={loading}
+              loading={loading || userStakingInfoLoading}
               currencyName={
                 <FormattedMessage
                   id="currencyDisplayCode.MDT"
                   defaultMessage="MDT"
                 />
               }
-              amount={mdtAmount}
+              amount={mdtTotalAmount}
               amountUnitVariant={MEASURABLE_DATA_TOKEN}
               usdAmount={mdtToUsdAmount}
               onPress={handleMdtPress}
