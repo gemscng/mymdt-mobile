@@ -4,6 +4,7 @@ import {FormattedMessage} from 'react-intl';
 import useQueryWithAuth from '@/hooks/useQueryWithAuth';
 import {GET_USER_PROFILE_API} from '@/api/data';
 import AppAvator from '@/components/AppAvator';
+import inAppBrowser from '@/utils/inAppBrowser';
 
 import {
   listHeader,
@@ -61,18 +62,18 @@ const SettingScreen = ({navigation}) => {
     {id: 'app_settings', icon: SettingIcon},
     {
       messageId: 'faq_and_support',
-      url: 'https://www.reward.me/?1',
+      url: 'https://www.reward.me/faq',
       icon: HelpIcon,
     },
     {
       messageId: 'terms_of_service_and_privacy_policy',
-      url: 'https://www.reward.me/?2',
+      url: 'https://reward.me/tandc',
       icon: BookIcon,
     },
     {
       messageId: 'about_us',
       icon: RewardMeIcon,
-      url: 'https://www.reward.me/?3',
+      url: 'https://reward.me/aboutus',
     },
     // TODO: add real url when website ready
   ];
@@ -133,7 +134,7 @@ const SettingScreen = ({navigation}) => {
                   if (gs.id) {
                     navigation.navigate(gs.id);
                   } else {
-                    Linking.openURL(gs.url);
+                    inAppBrowser.open(gs.url);
                   }
                 }}
               />
