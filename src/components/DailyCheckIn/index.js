@@ -1,5 +1,5 @@
-import React, {useState, useContext} from 'react';
-import {View, ScrollView} from 'react-native';
+import React, {useState, useContext, useRef, useEffect} from 'react';
+import {View, ScrollView, Dimensions} from 'react-native';
 import {FormattedMessage} from 'react-intl';
 import useQueryWithAuth from '@/hooks/useQueryWithAuth';
 import useMutationWithReset from '@/hooks/useMutationWithReset';
@@ -14,9 +14,24 @@ import PopupModal from '@/components/PopupModal';
 import DayList from './DayList';
 import AchievementBadge from './AchievementBadge';
 
+const {width: viewportWidth} = Dimensions.get('window');
+
 const DailyCheckIn = () => {
   const [daysPresentInBadge, setDaysPresentInBadge] = useState(0);
+  const [todayElementLayout, setTodayElementLayout] = useState(null);
   const {localeEnum} = useContext(IntlContext);
+  const scrollRef = useRef();
+
+  useEffect(() => {
+    if (scrollRef.current && !!todayElementLayout) {
+      scrollRef.current.scrollTo({
+        x:
+          todayElementLayout.xAxis -
+          viewportWidth / 2 +
+          todayElementLayout.width / 2,
+      });
+    }
+  }, [todayElementLayout]);
 
   const {data, refetch} = useQueryWithAuth(GET_CHECK_IN_STATUS_API);
 
@@ -37,9 +52,14 @@ const DailyCheckIn = () => {
   const isEnglish = localeEnum === 'EN_US';
   const today = data?.userProfile?.checkInStatus?.today;
   const checkedInToday = data?.userProfile?.checkInStatus?.hasCheckedInToday;
-  const todayAndAfterRewards = data?.userProfile?.checkInStatus?.rewards;
+  const todayAndAfterRewards = data?.userProfile?.checkInStatus?.rewards || [];
   const todayRewardAmount =
     (todayAndAfterRewards && todayAndAfterRewards[today - 1]) || 0;
+  const slicedRewardList =
+    todayAndAfterRewards.slice(
+      daysPresentInBadge,
+      todayAndAfterRewards.length,
+    ) || [];
 
   const handleRewardGotPress = () => {
     reset();
@@ -49,12 +69,13 @@ const DailyCheckIn = () => {
   return (
     <View style={container}>
       <ScrollView
+        ref={scrollRef}
         horizontal={true}
         showsHorizontalScrollIndicator={false}
         style={dayList}>
         <View style={margin} />
         <AchievementBadge
-          day={today}
+          day={checkedInToday ? today : today - 1}
           setDaysPresentInBadge={setDaysPresentInBadge}
           isEnglish={isEnglish}
         />
@@ -62,8 +83,9 @@ const DailyCheckIn = () => {
           daysPresentInBadge={daysPresentInBadge}
           today={today}
           checkedInToday={checkedInToday}
-          todayAndAfterRewards={todayAndAfterRewards}
+          todayAndAfterRewards={slicedRewardList}
           isEnglish={isEnglish}
+          setTodayElementLayout={setTodayElementLayout}
         />
         <View style={margin} />
       </ScrollView>

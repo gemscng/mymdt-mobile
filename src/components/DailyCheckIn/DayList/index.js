@@ -15,6 +15,7 @@ const DayList = ({
   checkedInToday,
   daysPresentInBadge,
   isEnglish,
+  setTodayElementLayout,
 }) => {
   const theme = useTheme();
   return (
@@ -30,6 +31,12 @@ const DayList = ({
           return (
             <View
               key={index}
+              onLayout={(event) => {
+                if (isToday) {
+                  const layout = event.nativeEvent.layout;
+                  setTodayElementLayout({xAxis: layout.x, width: layout.width});
+                }
+              }}
               style={[
                 card(theme, isToday),
                 passedDay && {backgroundColor: theme.colors.secondary.normal},
