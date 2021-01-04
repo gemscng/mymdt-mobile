@@ -21,6 +21,7 @@ import MdtTransactionHistory from './MdtTransactionHistory';
 import transactionTypeToIcon from '@/utils/transactionTypeToIcon';
 
 import AppAvator from '@/components/AppAvator';
+import StakeToUpgradeBanner from '@/components/StakeToUpgradeBanner';
 
 import {
   container,
@@ -114,8 +115,8 @@ const MdtDetailScreen = ({navigation}) => {
             />
           </>
         )}
-        {Config.EXPERIMENTAL_FEATURE === 'true' && (
-          <View style={rowContainer}>
+        <View style={rowContainer}>
+          {Config.EXPERIMENTAL_FEATURE === 'true' && (
             <AppButton
               variant="filled"
               sizeVariant="normal"
@@ -125,15 +126,16 @@ const MdtDetailScreen = ({navigation}) => {
               style={marginRight}
               disabled={mdtAmount <= 0}
             />
-            <AppButton
-              variant="filled"
-              sizeVariant="normal"
-              colorVariant="primaryDark"
-              text="deposit"
-              svgIcon={DepositIcon}
-            />
-          </View>
-        )}
+          )}
+          <AppButton
+            variant="filled"
+            sizeVariant="normal"
+            colorVariant="primaryDark"
+            text="deposit"
+            svgIcon={DepositIcon}
+            onPress={() => navigation.navigate('deposit')}
+          />
+        </View>
       </SafeAreaView>
       {userStakingInfoLoading ? (
         <LoadingSpinner color={theme.colors.background1} />
@@ -150,12 +152,7 @@ const MdtDetailScreen = ({navigation}) => {
           availableMdt={mdtAmount}
         />
       ) : (
-        <TouchableOpacity onPress={handleBannerPress}>
-          <Image
-            source={require('@/assets/stake_to_upgrade_banner.png')}
-            style={banner}
-          />
-        </TouchableOpacity>
+        <StakeToUpgradeBanner navigation={navigation} style={banner} />
       )}
       <MdtTransactionHistory
         navigation={navigation}

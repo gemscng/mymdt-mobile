@@ -1,5 +1,5 @@
 import React, {useState, useLayoutEffect} from 'react';
-import {FormattedDate, FormattedMessage} from 'react-intl';
+import {FormattedDate, FormattedMessage, FormattedNumber} from 'react-intl';
 import {View, ScrollView} from 'react-native';
 import {useTheme} from 'emotion-theming';
 
@@ -19,6 +19,7 @@ import useQueryWithAuth from '@/hooks/useQueryWithAuth';
 import useMutationWithAuth from '@/hooks/useMutationWithAuth';
 
 import LockIcon from '@/assets/icon_lock.svg';
+import AlertIcon from '@/assets/icon_alert-triangle.svg';
 
 import {
   marginTop,
@@ -28,6 +29,12 @@ import {
   icon,
   center,
   availableMdtContainer,
+  notEnought,
+  alert,
+  textAlignCenter,
+  alertContainer,
+  mediumEmphasis,
+  rowContainer,
 } from './style';
 
 const AvailableMDT = ({amount}) => {
@@ -142,8 +149,37 @@ const StackScreen = ({navigation, route}) => {
             />
           ) : (
             <DepositMdt
-              availableMdt={availableMdt}
               depositAmount={stakeAmount - availableMdt}
+              detail={
+                <View style={alertContainer(theme)}>
+                  <View style={[rowContainer, alert]}>
+                    <AlertIcon
+                      fill={theme.colors.textOnError.normal}
+                      stroke={theme.colors.textOnError.normal}
+                      strokeWidth={2}
+                    />
+                    <AppText variant="subTitle3" style={notEnought(theme)}>
+                      <FormattedMessage
+                        id="you_dont_have_enought_mdt"
+                        defaultMessage="You don’t have enough MDT"
+                      />
+                    </AppText>
+                  </View>
+                  <AppText
+                    variant="body2"
+                    style={[mediumEmphasis(theme), textAlignCenter]}>
+                    <FormattedMessage
+                      id="you_can_stake_after_transfer_mdt_to_deposit_address"
+                      defaultMessage="You can stake MDT after transfering {amount} MDT to the deposit address below."
+                      values={{
+                        amount: (
+                          <FormattedNumber value={stakeAmount - availableMdt} />
+                        ),
+                      }}
+                    />
+                  </AppText>
+                </View>
+              }
               address={address}
             />
           )}

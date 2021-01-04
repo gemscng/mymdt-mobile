@@ -73,6 +73,7 @@ import MembershipDetailScreen from '@/screens/MembershipDetailScreen';
 import UpgradeScreen from '@/screens/UpgradeScreen';
 import CashBackSummaryScreen from '@/screens/CashBackSummaryScreen';
 import StakeScreen from '@/screens/StakeScreen';
+import DepositScreen from '@/screens/DepositScreen';
 import GiftCodeScreen from '@/screens/GiftCodeScreen';
 
 import {AuthContext} from '@/context/auth';
@@ -213,6 +214,10 @@ const authModalScreens = [
   {
     name: 'stake',
     component: StakeScreen,
+  },
+  {
+    name: 'deposit',
+    component: DepositScreen,
   },
   {
     name: 'mdt_gift_code',

@@ -305,6 +305,7 @@
     "redeem_successfully": "Successfully Redeemed",
     "invalid_gift_code": "Invalid Gift Code",
     "make_sure_correct_gift_code": "Please make sure you enter the correct code. If you have any queries, please contact {email}",
+  "deposit_detail": "Depositing MDT in RewardMe is easy. Transfer MDT from any crypto exchange to the deposit address below.",
     "transactionType": {
         "reward": "\u0e23\u0e32\u0e07\u0e27\u0e31\u0e25",
         "redeem": "\u0e41\u0e25\u0e01",

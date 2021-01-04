@@ -44,3 +44,31 @@ export const availableMdtContainer = (theme) => css`
   border-radius: 24px;
   padding: 8px;
 `;
+
+export const alertContainer = (theme) => css`
+  background: ${theme.colors.detailBox.error};
+  border-radius: 24px;
+  padding: 16px;
+`;
+
+export const alert = css`
+  justify-content: center;
+`;
+
+export const notEnought = (theme) => css`
+  color: ${theme.colors.textOnError.normal};
+  margin-bottom: 8px;
+  margin-left: 4px;
+`;
+
+export const textAlignCenter = css`
+  text-align: center;
+`;
+
+export const mediumEmphasis = (theme) => css`
+  color: ${theme.colors.textOnBackground.mediumEmphasis};
+`;
+
+export const rowContainer = css`
+  flex-direction: row;
+`;

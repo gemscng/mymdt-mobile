@@ -36,9 +36,6 @@ export const marginRight = css`
 `;
 
 export const banner = css`
-  border-radius: 24px;
-  margin-left: auto;
-  margin-right: auto;
   margin-top: 16px;
 `;
 
