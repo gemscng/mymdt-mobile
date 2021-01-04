@@ -16,7 +16,7 @@ import ConvertIcon from '@/assets/convert_icon.svg';
 // import GiftIcon from '@/assets/gift_icon.svg';
 import WithdrawalIcon from '@/assets/icon_upload.svg';
 import StakeMdtIcon from '@/assets/icon_download.svg';
-// import MyMdtIcon from '@/assets/mymdt_icon.svg';
+import MyMdtIcon from '@/assets/mymdt_icon.svg';
 import {FormattedMessage} from 'react-intl';
 import ScreenContainer from '@/components/ScreenContainer';
 import LinearGradientBackground from '@/components/LinearGradientBackground';
@@ -168,6 +168,11 @@ const WalletScreen = ({navigation}) => {
           initialFrom: ME,
           initialTo: REWARD_DOLLAR,
         }),
+    },
+    {
+      name: 'MDT Gift Code',
+      icon: MyMdtIcon,
+      action: () => navigation.navigate('mdt_gift_code'),
     },
   ];
 

@@ -300,6 +300,11 @@
     "this_card_is_already_bound": "Th\u1ebb n\u00e0y \u0111\u00e3 \u0111\u01b0\u1ee3c li\u00ean k\u1ebft v\u1edbi m\u1ed9t t\u00e0i kho\u1ea3n. Vui l\u00f2ng li\u00ean h\u1ec7 v\u1edbi support@reward.me n\u1ebfu b\u1ea1n cho r\u1eb1ng c\u00f3 b\u1ea5t k\u1ef3 v\u1ea5n \u0111\u1ec1 n\u00e0o.",
     "from": "t\u1eeb",
     "to": "\u0111\u1ec3",
+    "enter_gift_code": "Enter Gift Code",
+    "mdt_gift_code": "MDT Gift Code",
+    "redeem_successfully": "Successfully Redeemed",
+    "invalid_gift_code": "Invalid Gift Code",
+    "make_sure_correct_gift_code": "Please make sure you enter the correct code. If you have any queries, please contact {email}",
     "transactionType": {
         "reward": "Ph\u1ea7n th\u01b0\u1edfng",
         "redeem": "\u0110\u1ed5i th\u01b0\u1edfng",
@@ -363,7 +368,8 @@
         "invite_friends": "M\u1eddi b\u1ea1n b\u00e8",
         "bind": "li\u00ean k\u1ebft",
         "copy": "sao ch\u00e9p",
-        "choose_cashback_type": "Ch\u1ecdn lo\u1ea1i ti\u1ec1n ho\u00e0n l\u1ea1i"
+        "choose_cashback_type": "Ch\u1ecdn lo\u1ea1i ti\u1ec1n ho\u00e0n l\u1ea1i",
+        "try_again": "Try Again"
     },
     "error": {
         "required": "B\u1eaft bu\u1ed9c",

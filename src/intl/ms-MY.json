@@ -300,6 +300,11 @@
     "this_card_is_already_bound": "Kad ini sudah diikat dengan akaun. Sila hubungi support@reward.me jika anda rasa terdapat sebarang masalah.",
     "from": "daripada",
     "to": "kepada",
+    "enter_gift_code": "Enter Gift Code",
+    "mdt_gift_code": "MDT Gift Code",
+    "redeem_successfully": "Successfully Redeemed",
+    "invalid_gift_code": "Invalid Gift Code",
+    "make_sure_correct_gift_code": "Please make sure you enter the correct code. If you have any queries, please contact {email}",
     "transactionType": {
         "reward": "Ganjaran",
         "redeem": "Tebus",
@@ -363,7 +368,8 @@
         "invite_friends": "Jemput rakan",
         "bind": "ikat",
         "copy": "salin",
-        "choose_cashback_type": "Pilih Jenis Pulangan Tunai"
+        "choose_cashback_type": "Pilih Jenis Pulangan Tunai",
+        "try_again": "Try Again"
     },
     "error": {
         "required": "Diperlukan",

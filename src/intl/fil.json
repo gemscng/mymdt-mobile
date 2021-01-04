@@ -300,6 +300,11 @@
     "this_card_is_already_bound": "Naka-link na ang account na ito sa isang account. Pakikontak ang support@reward.me kung sa tingin mo ay may problema.",
     "from": "mula",
     "to": "hanggang",
+    "enter_gift_code": "Enter Gift Code",
+    "mdt_gift_code": "MDT Gift Code",
+    "redeem_successfully": "Successfully Redeemed",
+    "invalid_gift_code": "Invalid Gift Code",
+    "make_sure_correct_gift_code": "Please make sure you enter the correct code. If you have any queries, please contact {email}",
     "transactionType": {
         "reward": "Reward",
         "redeem": "I-redeem",
@@ -363,7 +368,8 @@
         "invite_friends": "Imbitahan ang mga kaibigan",
         "bind": "i-link",
         "copy": "kopyahin",
-        "choose_cashback_type": "Pumili ng Uri ng Cash Back"
+        "choose_cashback_type": "Pumili ng Uri ng Cash Back",
+        "try_again": "Try Again"
     },
     "error": {
         "required": "Kinakailangan",
