@@ -107,3 +107,11 @@ export const REGISTER_DEVICE = gql`
     )
   }
 `;
+
+export const REDEEM_GIFT_CODE = gql`
+  mutation RedeemGiftCode($code: String!) {
+    redeemGiftCode(code: $code) {
+      value
+    }
+  }
+`;

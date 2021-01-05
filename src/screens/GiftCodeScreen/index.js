@@ -5,6 +5,8 @@ import AppText from '@/components/AppText2';
 import {image, title, container} from './style';
 import {useTheme} from 'emotion-theming';
 import {FormattedMessage} from 'react-intl';
+import {REDEEM_GIFT_CODE} from '@/api/auth';
+import useMutationWithAuth from '@/hooks/useMutationWithAuth';
 
 import LoadingSpinner from '@/components/LoadingSpinner';
 
@@ -19,7 +21,6 @@ const FAIL = 'fail';
 const initialState = {
   status: READY,
   redeemAmount: 0,
-  isRedeeming: false,
 };
 
 const reducer = (state, action) => {
@@ -47,15 +48,23 @@ const reducer = (state, action) => {
 
 const GiftCodeScreen = ({navigation}) => {
   const theme = useTheme();
+  const [redeemGiftCode, {loading}] = useMutationWithAuth(REDEEM_GIFT_CODE);
   const [state, dispatch] = useReducer(reducer, initialState);
   const handleSubmitPress = async (values) => {
     try {
-      // handle when api ready
+      const {data} = await redeemGiftCode({
+        variables: {
+          code: values.redeemCode,
+        },
+      });
+
+      if (data) {
+        dispatch({type: SUCCESS, payload: data?.value || 0});
+      }
     } catch (e) {
       console.error('Error in redeem gift code', e);
       dispatch({type: FAIL});
     }
-    dispatch({type: SUCCESS, payload: 20});
     Keyboard.dismiss();
   };
 
@@ -79,7 +88,8 @@ const GiftCodeScreen = ({navigation}) => {
           <FormattedMessage id="mdt_gift_code" defaultMessage="MDT Gift Code" />
         </AppText>
       </View>
-      {state.isRedeeming && <LoadingSpinner />}
+
+      {loading && <LoadingSpinner />}
       {state.status === SUCCESS && (
         <RedeemSuccess
           handleConfirmPress={handleConfirmPress}
