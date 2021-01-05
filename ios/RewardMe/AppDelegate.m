@@ -11,6 +11,7 @@
 #import <UserNotifications/UserNotifications.h>
 
 #import "AppDelegate.h"
+#import <Firebase.h>
 
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
@@ -72,6 +73,10 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
   #ifdef FB_SONARKIT_ENABLED
     InitializeFlipper(application);
   #endif
+  
+  if ([FIRApp defaultApp] == nil) {
+    [FIRApp configure];
+  }
   
   [RNBranch initSessionWithLaunchOptions:launchOptions isReferrable:YES];
 
